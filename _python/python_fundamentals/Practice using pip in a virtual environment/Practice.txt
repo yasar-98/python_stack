@@ -1,0 +1,17 @@
+pip list: it shows the frameworks installed on the virtual environment
+deactivate: This will deactivate your virtual environment.
+pip3 list: it shows the frameworks installed when the virtual environment was deactivate
+call : ativate the environment
+pip install Django==2.2.4: install django framework.
+pip freeze :  it shows the frameworks that I installed
+pip uninstall Django: uninstall framework
+pip show Django: Description in framework.
+
+
+
+
+
+
+
+
+
