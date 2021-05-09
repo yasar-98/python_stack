@@ -61,12 +61,13 @@ def Ultimate_Analysis(myList):
 def Reverse_List(myList):
     size = len(myList)
     c=size-1
-    h=int(size/2)
-    for i in range(0,h):
-        temp=myList[c]
-        myList[c]=myList[i]
-        myList[i]=temp
+    for i in range(0,size):
+        if c<i:
+            break
+        myList[c],myList[i] =myList[i], myList[c]
+        
         c-=1
+
     print(myList)
     return myList
-Reverse_List([9,1,-37,2])
+Reverse_List([37,-2,1,9])
