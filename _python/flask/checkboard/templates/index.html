@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .A{
+            background-color: {{color1}};
+        }
+        .B{
+            background-color: {{color2}};
+        }
+    </style>
+
+</head>
+<body>
+    <table>
+        {% for i in range(x) %}
+            {% if i%2 ==0 %}
+                <tr>
+                    {% for j in range(y) %}
+                        {% if j%2 ==0 %}
+                            <td class="A"></td>
+                        {% else %}
+                            <td class="B"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
+            {% if i%2 !=0 %}
+                <tr>
+                    {% for j in range(y) %}
+                        {% if j%2 ==0 %}
+                            <td class="B"></td>
+                        {% else %}
+                            <td class="A"></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>
