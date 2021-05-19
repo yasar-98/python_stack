@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <p>{{request.session.count}} times</p>
+
+    <h1>Visit Counter</h1>
+    <p>{{request.session.vcount}} times</p>
+    
+
+
+
+    <form action="/destroy_session" method="POST">
+        {% csrf_token %}
+        <button>Reset</button>
+    </form>
+    <form action="/increment" method="POST">
+        {% csrf_token %}
+        <button>Increment by 2</button>
+    </form>
+    <form action="/user" method="POST">
+        {% csrf_token %}
+        <input type="number" name="increm" required placeholder="enter a positive number">
+        <button>Increment</button>
+    </form>
+</body>
+</html>
