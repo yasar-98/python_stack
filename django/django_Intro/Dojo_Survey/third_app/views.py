@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render, HttpResponse
+from django.shortcuts import redirect, render
 
 # Create your views here.
 
@@ -13,16 +13,15 @@ def check_credantial(username):
 
 def show(request):
     if request.method == "POST":
-        name= request.POST['username']
-        Location=request.POST['Location']
-        Language=request.POST['Language']
-        area=request.POST['area']
-    if check_credantial(name):
-            return redirect('result/')
-    return redirect('/')
-    
+        request.session['name']=request.POST['username']
+        request.session['location']=request.POST['Location']
+        request.session['lang']=request.POST['Language']
+        request.session['arer']=request.POST['area']
+
+    return redirect('/result')
+
 def success(request):
-    return render('show.html')
+    return render(request,'show.html')
 
 
 

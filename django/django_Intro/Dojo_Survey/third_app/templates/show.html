@@ -8,9 +8,12 @@
 </head>
 <body>
     <h2>Submitted Info</h2>
-    <p>username: {{name}}</p>
-    <p>Location: {{Location}}</p>
-    <p>Language: {{Language}}</p>
-    <p>area: {{area}}</p>
+    <p>username: {{request.session.name}}</p>
+    <p>Location: {{request.session.Location}}</p>
+    <p>Language: {{request.session.language}}</p>
+    <p>area: {{request.session.area}}</p>
+    <form action="/">
+        <input type="submit" value="Go back">
+    </form>
 </body>
 </html>
