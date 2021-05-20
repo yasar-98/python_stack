@@ -1,0 +1,27 @@
+
+1)User.objects.create(first_name="Yasar", last_name="Naser", email_address="yasar_98@outlook.sa",age="23")
+ User.objects.create(first_name="Sahar", last_name="Murrar", email_address="Murrar_98@outlook.sa",age="23")
+User.objects.create(first_name="Hadeel", last_name="sss", email_address="hadeel8@outlook.sa",age="27")
+
+2) 
+##
+in models.py inside class User:
+    def __str__(self):
+        return f"<User object: {self.first_name} ({self.last_name}) {self.email_address} {self.age} {self.created_at} {self.updated_at} > "
+## 
+User.objects.all()
+
+3)User.objects.last()
+
+4)User.objects.first()
+
+5) u=User.objects.get(id=3)
+   u.last_name="Panckcakes"
+   u.save()
+
+6)c=User.objects.get(id=2)
+  c.delete()
+
+7)User.obejcts.all().order_by("first_name)
+
+8)User.obejcts.all().order_by("-first_name)
