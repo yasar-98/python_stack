@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo and Ninja</title>
+</head>
+<body>
+    <h2>Add to a Dojo</h2>
+    <form action="/dojo" method="POST">
+        {% csrf_token %}
+        Name: <input type="text" name="name">
+        city: <input type="text" name="city">
+        state: <input type="text" name="state">
+        <input type="submit" value="Add">
+    </form>
+    <h2>Add to a Ninja</h2>
+    <form action="/ninja" method="POST">
+        {% csrf_token %}
+        First Name: <input type="text" name="first_name">
+        Last Name: <input type="text" name="last_name">
+        Dojo: <select name="dojo">
+            {% for dojo in all_the_dojos %}
+            <option value="{{dojo.id}}">{{dojo.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+    </form>
+    <hr>
+    <h1>All the Dojos</h1>
+    {% for dojo in all_the_dojos%}
+    <h2>{{dojo.name}}</h2>
+    <ul>
+        {% for ninja in dojo.ninjas.all %}
+        <li>{{ninja.first_name}} {{ninja.last_name}}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</body>
+</html>
