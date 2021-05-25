@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <a href="/shows/{{series.id}}">Go Back</a>
+    <h1>Edit Shows {{series.id}}</h1>
+    <form action="/h/{{series.id}}" method="POST">
+        {% csrf_token %}
+        Title: <input type="text" name="title" > <br>
+        Network: <input type="text" name="network" >
+        Release Date: <input type="date" name="release_date"> <br>
+        Description: <br> <textarea name="desc" cols="30" rows="10"></textarea> <br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
