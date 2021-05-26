@@ -27,9 +27,9 @@ def books(request,num):
 
 def booking(request,num):
     
-    y=Author.objects.get(id=request.POST['author'])
+    y=Author.objects.get(id=request.POST['author']) # use descriptive names, and use MTV
     Book.objects.get(id=num).authors.add(y) 
-    return redirect(f'/book/'+ str(num) +'')
+    return redirect(f'/book/{num}')
 
 def authorg(request):
     Author.objects.create(first_name=request.POST['first_name'],last_name=request.POST['last_name'],note=request.POST['note'])
