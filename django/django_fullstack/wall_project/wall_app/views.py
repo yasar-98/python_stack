@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from . import models
 import bcrypt
 from django.contrib import messages
+from datetime import date, datetime
 
 
 def index(request):
@@ -36,6 +37,20 @@ def posting(request):
         post_message=request.POST['post_message']
         this_user.posts.create(post_message=post_message,user=this_user)
         return redirect('/wall')
+
+def deletecom(request,num):
+        this_user=models.User.objects.get(id=request.session['id'])
+        post=models.Post.objects.get(id=num)
+        x=models.Comment.objects.filter(post=post,user=this_user)
+        x.delete()
+        return redirect('/wall')
+
+def deletecom(request,num):
+    this_user=models.User.objects.get(id=request.session['id'])
+    y=models.Post.objects.filter(user=this_user)
+    if y.created_at:
+        y.delete()
+    return redirect('/wall')
 
 def register(request):
     errors = models.User.objects.basic_validator(request.POST)

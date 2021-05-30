@@ -8,4 +8,6 @@ urlpatterns = [
     path('wall', views.wall),
     path('commenting/<int:num>', views.commenting),
     path('posting', views.posting),
+    path('deletecom/<int:num>', views.deletecom),
+    path('deletepos', views.deletepos),
 ]

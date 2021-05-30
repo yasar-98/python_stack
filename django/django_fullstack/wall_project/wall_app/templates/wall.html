@@ -22,10 +22,12 @@
         {% for post in all_post %}
         <h2>{{post.user.first_name}}{{post.user.last_name}} // {{post.created_at}}</h2>
             <p>{{post.post_message}}</p>
+            <a href="/deletepos">delete</a>
             <ul>
                 {% for comment in post.comments.all %}
                 <li> {{ comment.comment_message}} <span style="color: blue;"> {{comment.user.first_name}}{{comment.user.last_name}} ! {{comment.created_at}}</span>
                 </li>
+                <a href="/deletecom/{{post.id}}">delete</a>
                 {% endfor %}
             </ul>
             <form action="/commenting/{{post.id}}" method="POST">
